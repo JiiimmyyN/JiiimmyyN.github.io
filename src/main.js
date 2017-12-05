@@ -1,7 +1,11 @@
-const React = require('react');
+const React = require("react");
 const ReactDOM = require("react-dom");
+const App = require("./components/app").App;
+
+var json = require("./data");
+require("./style.styl");
 
 ReactDOM.render(
-    <h1>Hello, world!</h1>, 
-    document.getElementById('root')
+	<App data={json}/>, 
+	document.getElementById("root")
 );

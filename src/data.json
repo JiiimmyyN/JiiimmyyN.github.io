@@ -1,0 +1,71 @@
+{
+    "col-left": {
+        "elements": [
+			{
+				"type": "img",
+				"URL": "./placeholder.jpg",
+				"width": "200px"
+			},
+			{
+				"type": "text",
+				"text": "CONTACT"
+			},
+            {
+                "type": "external",
+                "site": "github",
+                "URL": "http://github.com",
+                "text": "Github"
+            },
+            {
+                "type": "external",
+                "site": "envelope",
+                "URL": "mailto:Jiiiimmmyy@gmail.com?Subject=Hello",
+                "text": "Mail"
+			}
+        ]
+    },
+    "col-right": {
+        "elements": [
+			{
+				"type": "h1",
+				"text": "Jimmy Nilsson"
+			},
+			{
+				"type": "text",
+				"text": "Software Developer"
+			},
+			{
+				"type": "projects",
+				"header": "Proffesional Projects",
+				"elements": [
+					{
+						"type": "project",
+						"title": "Blast Out",
+						"subtitle": "Tarhead Studio",
+						"description": "A PvP Top-Down Arena Brawler where the player battle it out against the enemy using crazy ability combos.<br> The game have an unique ability systems where the player select an ability loadout before each game which makes every match unique.",
+						"elements": [
+							{
+								"type": "external",
+								"site": "steam",
+								"text": " Steam",
+								"URL": "http://google.com"
+							},
+							{
+								"type": "external",
+								"site": "globe",
+								"text": " Website",
+								"URL": "http://google.com"
+							},
+							{
+								"type": "external",
+								"site": "youtube",
+								"text": " Trailer",
+								"URL": "http://google.com"
+							}
+						]
+					}
+				]
+			}
+		]
+    }
+}
