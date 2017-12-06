@@ -46,7 +46,8 @@ class ExternalElement extends React.Component {
 		var c = "fa fa-" + this.props.data["site"] + " fa-inverse";
 		return (
 			<span>
-				<i className={c} aria-hidden={true}></i> {this.props.data["text"]}
+				<i className={c} aria-hidden={true}></i>
+				<a href={this.props.data["URL"]}> {this.props.data["text"]}</a>
 			</span>
 		);
 	}
