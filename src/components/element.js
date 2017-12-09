@@ -32,10 +32,15 @@ class SingleProjectElement extends React.Component {
 
 		return (
 			<div className="project">
-				<h1>{this.props.data["title"]}</h1>
-				<h3>{this.props.data["subtitle"]}</h3>
-				<p>{this.props.data["description"]}</p>
-				<div>{ e }</div>
+				<div className="thumbnail">
+					<h1>{this.props.data["title"]}</h1>
+					<h3>{this.props.data["subtitle"]}</h3>
+					<img src={this.props.data["thumbnail"]}></img>
+				</div>
+				<div className="summary">
+					<p>{this.props.data["description"]}</p>
+					<div>{ e }</div>
+				</div>
 			</div>
 		);
 	}
@@ -43,7 +48,7 @@ class SingleProjectElement extends React.Component {
 
 class ExternalElement extends React.Component {
 	render() {
-		var c = "fa fa-" + this.props.data["site"] + " fa-inverse";
+		var c = "fa fa-" + this.props.data["site"] ;
 		return (
 			<span>
 				<i className={c} aria-hidden={true}></i>
@@ -58,8 +63,12 @@ class Element extends React.Component {
 
 		let value = this.props.data;
 
+		let display = "";
+		if(this.props.data["display"])
+			display = this.props.data["display"];
+
 		if(value.type === "external")
-			return (<p><ExternalElement data={value} /></p>);
+			return (<p className={display}><ExternalElement data={value} /></p>);
 		else if(value.type === "text")
 			return (<p>{value.text}</p>);
 		else if(value.type === "img")

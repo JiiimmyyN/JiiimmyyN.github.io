@@ -18266,7 +18266,6 @@ class App extends React.Component {
 		return React.createElement(
 			"div",
 			null,
-			React.createElement(Collumn, { "class": "left", data: this.props.data["col-left"] }),
 			React.createElement(Collumn, { "class": "right", data: this.props.data["col-right"] })
 		);
 	}
@@ -18347,24 +18346,33 @@ class SingleProjectElement extends React.Component {
 			"div",
 			{ className: "project" },
 			React.createElement(
-				"h1",
-				null,
-				this.props.data["title"]
-			),
-			React.createElement(
-				"h3",
-				null,
-				this.props.data["subtitle"]
-			),
-			React.createElement(
-				"p",
-				null,
-				this.props.data["description"]
+				"div",
+				{ className: "thumbnail" },
+				React.createElement(
+					"h1",
+					null,
+					this.props.data["title"]
+				),
+				React.createElement(
+					"h3",
+					null,
+					this.props.data["subtitle"]
+				),
+				React.createElement("img", { src: this.props.data["thumbnail"] })
 			),
 			React.createElement(
 				"div",
-				null,
-				e
+				{ className: "summary" },
+				React.createElement(
+					"p",
+					null,
+					this.props.data["description"]
+				),
+				React.createElement(
+					"div",
+					null,
+					e
+				)
 			)
 		);
 	}
@@ -18372,13 +18380,17 @@ class SingleProjectElement extends React.Component {
 
 class ExternalElement extends React.Component {
 	render() {
-		var c = "fa fa-" + this.props.data["site"] + " fa-inverse";
+		var c = "fa fa-" + this.props.data["site"];
 		return React.createElement(
 			"span",
 			null,
 			React.createElement("i", { className: c, "aria-hidden": true }),
-			" ",
-			this.props.data["text"]
+			React.createElement(
+				"a",
+				{ href: this.props.data["URL"] },
+				" ",
+				this.props.data["text"]
+			)
 		);
 	}
 }
@@ -18388,9 +18400,12 @@ class Element extends React.Component {
 
 		let value = this.props.data;
 
+		let display = "";
+		if (this.props.data["display"]) display = this.props.data["display"];
+
 		if (value.type === "external") return React.createElement(
 			"p",
-			null,
+			{ className: display },
 			React.createElement(ExternalElement, { data: value })
 		);else if (value.type === "text") return React.createElement(
 			"p",
@@ -18414,7 +18429,7 @@ exports.Element = Element;
 /* 30 */
 /***/ (function(module, exports) {
 
-module.exports = {"col-left":{"elements":[{"type":"img","URL":"./placeholder.jpg","width":"200px"},{"type":"text","text":"CONTACT"},{"type":"external","site":"github","URL":"http://github.com","text":"Github"},{"type":"external","site":"envelope","URL":"mailto:Jiiiimmmyy@gmail.com?Subject=Hello","text":"Mail"}]},"col-right":{"elements":[{"type":"h1","text":"Jimmy Nilsson"},{"type":"text","text":"Software Developer"},{"type":"projects","header":"Proffesional Projects","elements":[{"type":"project","title":"Blast Out","subtitle":"Tarhead Studio","description":"A PvP Top-Down Arena Brawler where the player battle it out against the enemy using crazy ability combos.<br> The game have an unique ability systems where the player select an ability loadout before each game which makes every match unique.","elements":[{"type":"external","site":"steam","text":" Steam","URL":"http://google.com"},{"type":"external","site":"globe","text":" Website","URL":"http://google.com"},{"type":"external","site":"youtube","text":" Trailer","URL":"http://google.com"}]}]}]}}
+module.exports = {"col-right":{"elements":[{"type":"h1","text":"Jimmy Nilsson"},{"type":"text","text":"Software Developer"},{"type":"external","site":"github","URL":"https://github.com/JiiimmyyN","text":"Github","display":"inline"},{"type":"external","site":"linkedin","URL":"https://www.linkedin.com/in/jimmy-nilsson-8a976751/","text":"LinkedIn","display":"inline"},{"type":"external","site":"envelope","URL":"mailto:Jiiiimmmyy@gmail.com","text":"Mail","display":"inline"},{"type":"projects","header":"Proffesional Projects","elements":[{"type":"project","title":"Blast Out","subtitle":"Tarhead Studio","thumbnail":"./assets/blastout.jpg","description":"A PvP Top-Down Arena Brawler where the player battle it out against the enemy using crazy ability combos. The game have an unique ability systems where the player select an ability loadout before each game which makes every match unique.","elements":[{"type":"external","site":"steam","text":" Steam","URL":"http://store.steampowered.com/app/391530/Blast_Out/"},{"type":"external","site":"globe","text":" Website","URL":"http://blastout-game.com"},{"type":"external","site":"youtube","text":" Trailer","URL":"https://www.youtube.com/watch?v=Oqs7DnUVdW0"}]}]}]}}
 
 /***/ }),
 /* 31 */
@@ -18456,7 +18471,7 @@ exports = module.exports = __webpack_require__(33)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  background-color: #202020;\n  font-family: 'Roboto Condensed', sans-serif;\n}\n.left {\n  float: left;\n  color: #f5edd2;\n}\n.left p {\n  font-style: bold;\n  font-size: 25px;\n  margin: 0px;\n}\n.left p span {\n  font-size: 18px;\n  margin: -20px 0px;\n}\n.right {\n  padding: 0px 0px 0px 10px;\n  color: #f5edd2;\n  overflow: auto;\n}\n.right h1 {\n  font-weight: 700;\n  margin: 5px 5px 20px;\n}\n.right p {\n  font-family: 'Roboto Condensed', sans-serif;\n  font-size: 20px;\n  margin: 5px 5px 40px;\n}\n.projects {\n  margin: 0px 10px 10px 0;\n  border: 1px solid #000;\n  background: rgba(238,51,238,0.2) e;\n  -webkit-box-shadow: 16px 15px 45px -22px rgba(0,0,0,0.75);\n  -moz-box-shadow: 16px 15px 45px -22px rgba(0,0,0,0.75);\n  box-shadow: 16px 15px 45px -22px rgba(0,0,0,0.75);\n}\n.projects-header h1 {\n  margin: 5px 0px 5px 10px;\n  color: rgba(238,51,238,0.2) e;\n  font-size: 25px;\n}\n.projects-header {\n  border: 1px solid #000;\n}\n.projects-body {\n  border: 1px solid #000;\n  background-color: #202020;\n  color: rgba(238,51,238,0.2) e;\n}\n.project {\n  margin: 20px 4px 10px;\n  padding: 0px 5px 0px 5px;\n}\n.project h1 {\n  font-size: 25px;\n}\n.project h3 {\n  font-size: 15px;\n  font-style: italic;\n  margin: -15px 5px 20px;\n}\n.project div p {\n  display: inline;\n  padding: 0px 5px;\n}\n", ""]);
+exports.push([module.i, "body {\n  background-color: #e9ebee;\n  font-family: 'Roboto Condensed', sans-serif;\n  color: #202020;\n}\n#root {\n  width: 100%;\n  margin: auto;\n}\n@media (min-width: 768px) {\n  #root {\n    width: 750px;\n  }\n}\n@media (min-width: 992px) {\n  #root {\n    width: 940px;\n  }\n}\na {\n  color: #202020;\n  text-decoration: none;\n}\na:hover {\n  color: #68f;\n}\n.right {\n  padding: 0px 0px 0px 10px;\n  overflow: auto;\n  text-align: center;\n}\n.right h1 {\n  font-weight: 700;\n  margin: 5px 5px 20px;\n}\n.right p {\n  font-family: 'Roboto Condensed', sans-serif;\n  font-size: 20px;\n  margin: -15px 5px 10px;\n}\n.projects {\n  margin: 0px 10px 10px 0;\n  background: #fff;\n  -webkit-box-shadow: 16px 15px 15px -20px rgba(0,0,0,0.75);\n  -moz-box-shadow: 16px 15px 15px -20px rgba(0,0,0,0.75);\n  box-shadow: 16px 15px 15px -20px rgba(0,0,0,0.75);\n  border-radius: 4px;\n  margin-top: 40px;\n  text-align: left;\n}\n.projects-header h1 {\n  margin: 5px 0px 5px 10px;\n  font-size: 25px;\n}\n.projects-header {\n  background: #fff;\n  border-style: solid;\n  border-width: 0px 0px 1px 0px;\n  border-color: #808080;\n  border-radius: 4px 4px 0px 0px;\n}\n.projects-body {\n  background: #fff;\n  border-radius: 0px 0px 4px 4px;\n}\n.project {\n  margin: 4px 4px 10px;\n  padding: 0px 5px 0px 5px;\n  overflow: hidden;\n}\n.thumbnail h1 {\n  font-size: 25px;\n  margin: 0px;\n}\n.inline {\n  display: inline;\n}\n.thumbnail h3 {\n  font-size: 15px;\n  font-style: italic;\n  margin: 0px;\n}\n.summary {\n  padding: 45px 0px 25px 10px;\n  margin-left: 10px;\n  overflow: hidden;\n}\n.summary div {\n  padding-top: 10px;\n}\n.summary p {\n  display: inline;\n  padding: 10px 0px 10px 0px;\n  margin-top: 10px;\n}\n.thumbnail {\n  width: 300px;\n  float: left;\n}\n.thumbnail img {\n  width: 300px;\n}\n", ""]);
 
 // exports
 

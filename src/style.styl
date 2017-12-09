@@ -8,14 +8,31 @@ boxshadow()
 	-moz-box-shadow: arguments;
 	box-shadow: arguments;
 
-almost-white = #f5edd2;
-bg = #202020;
-projects-bg = #e3e3e;
+almost-white = #202020;
+bg = #E9EBEE;
+projects-bg = white;
 
 body {
     background-color: bg;
     font-family: 'Roboto Condensed', sans-serif;
+	color: almost-white;
 }
+
+#root { 
+	width 100%;
+	margin: auto;
+}
+@media (min-width: 768px) {
+	#root{
+		width: 750px;
+	}
+}
+@media (min-width: 992px) {
+	#root { 
+		width 940px;
+	}
+} 
+
 a {
 	color: almost-white;
 	text-decoration: none;
@@ -25,89 +42,104 @@ a:hover {
 	color: #6688ff;
 }
 
-.left { 
-    float: left;
-    debug-border: 1px dotted white;
-	color: almost-white;
-}
-
-.left p {
-	font-style: bold;
-	font-size: 25px;
-	margin: 0px;
-}
-
-.left p span {
-	font-size: 18px;
-	margin: -20px 0px;
-
-}
-
 .right {
     debug-border: 1px solid white ;
     padding: 0px 0px 0px 10px;
-    color: almost-white;
     overflow: auto;
+	text-align: center;
 }
 
 .right h1 {
     font-weight: 700;
     margin: 5px 5px 20px;
+
 }
 .right p { 
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
-    margin: 5px 5px 40px;
+    margin: -15px 5px 10px;
 }
 
 .projects {
     debug-border: 1px dashed white ;
     margin: 0px 10px 10px 0;
-	border: 1px solid black;
 	background: projects-bg;
-	boxshadow: 16px 15px 45px -22px rgba(0,0,0,0.75);
+	boxshadow: 16px 15px 15px -20px rgba(0,0,0,0.75);
+	border-radius: 4px;
+	margin-top: 40px;
+	text-align: left;
 }
 
 .projects-header h1 {
 	debug-border: 1px dashed red ;
 	margin: 5px 0px 5px 10px;
-	color: projects-bg;
 	font-size: 25px;
 }
 
 .projects-header {
 	debug-border: 1px solid red ;
-	border: 1px solid black;
+	background: projects-bg;
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	border-color: gray;
+	border-radius: 4px 4px 0px 0px;
 }
 
 .projects-body {
 	debug-border: 1px dashed green ;
-	border: 1px solid black;
-	background-color: bg;
-	color: projects-bg;
+	background: projects-bg;
+	border-radius: 0px 0px 4px 4px;
 }
 
 .project {
 	debug-border: 1px dashed red ;
-	margin: 20px 4px 10px;
+	margin: 4px 4px 10px;
 	padding: 0px 5px 0px 5px
+	overflow: hidden;
 }
 
-.project h1 {
+.thumbnail h1 {
 	font-size: 25px;
+	margin: 0px;
 }
 
-.project h3 {
+.inline { 
+	display: inline;
+}
+
+.thumbnail  h3 {
 	font-size: 15px;
 	font-style: italic;
-    margin: -15px 5px 20px;
+	margin: 0px;
 }
 
-.project div {
-	debug-border: 1px dashed white
+.summary {
+	padding: 45px 0px 25px 10px;
+	debug-border: 1px solid white;
+	margin-left: 10px;
+	overflow: hidden;
 }
 
-.project div p {
+.summary div {
+	padding-top: 10px;
+}
+
+.summary p {
 	display: inline;
-	padding: 0px 5px;
+	padding: 10px 0px 10px 0px;
+	margin-top: 10px
+}
+
+.thumbnail { 
+	debug-border: 1px dashed purple;
+	width: 300px;
+	float:left;
+}
+
+.thumbnail img { 
+	width: 300px;
+}
+
+.summary {
+	debug-border: 1px dashed blue
 }
