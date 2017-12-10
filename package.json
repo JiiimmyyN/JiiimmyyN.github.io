@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "dev": "node_modules/.bin/webpack-dev-server --devtool eval --progress --colors --hot --open"
+    "dev": "node_modules/.bin/webpack-dev-server --devtool eval --progress --colors --hot --open --host 0.0.0.0"
   },
   "author": "Jimmy Nilsson",
   "license": "MIT",
