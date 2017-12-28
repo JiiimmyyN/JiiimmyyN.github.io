@@ -10,6 +10,13 @@
 				"text": "Software Developer"
 			},
             {
+                "type": "external-download",
+                "site": "file-text",
+                "URL": "Jimmy Nilsson Software Developer Resume 2017.pdf",
+				"text": "Resume",
+				"display": "inline"
+            },
+            {
                 "type": "external",
                 "site": "github",
                 "URL": "https://github.com/JiiimmyyN",

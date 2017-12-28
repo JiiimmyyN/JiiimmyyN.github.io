@@ -58,6 +58,19 @@ class ExternalElement extends React.Component {
 	}
 }
 
+class ExternalDownloadElement extends React.Component {
+	render() {
+		var c = "fa fa-" + this.props.data["site"] ;
+		console.log("poop");
+		return (
+			<span>
+				<i className={c} aria-hidden={true}></i>
+				<a href={this.props.data["URL"]} target="_blank"> {this.props.data["text"]}</a>
+			</span>
+		);
+	}
+}
+
 class Element extends React.Component {
 	render() {
 
@@ -69,6 +82,8 @@ class Element extends React.Component {
 
 		if(value.type === "external")
 			return (<p className={display}><ExternalElement data={value} /></p>);
+		if(value.type === "external-download")
+			return (<p className={display}><ExternalDownloadElement data={value} /></p>);
 		else if(value.type === "text")
 			return (<p>{value.text}</p>);
 		else if(value.type === "img")

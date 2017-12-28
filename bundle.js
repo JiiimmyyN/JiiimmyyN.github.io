@@ -18395,6 +18395,24 @@ class ExternalElement extends React.Component {
 	}
 }
 
+class ExternalDownloadElement extends React.Component {
+	render() {
+		var c = "fa fa-" + this.props.data["site"];
+		console.log("poop");
+		return React.createElement(
+			"span",
+			null,
+			React.createElement("i", { className: c, "aria-hidden": true }),
+			React.createElement(
+				"a",
+				{ href: this.props.data["URL"], target: "_blank" },
+				" ",
+				this.props.data["text"]
+			)
+		);
+	}
+}
+
 class Element extends React.Component {
 	render() {
 
@@ -18407,6 +18425,11 @@ class Element extends React.Component {
 			"p",
 			{ className: display },
 			React.createElement(ExternalElement, { data: value })
+		);
+		if (value.type === "external-download") return React.createElement(
+			"p",
+			{ className: display },
+			React.createElement(ExternalDownloadElement, { data: value })
 		);else if (value.type === "text") return React.createElement(
 			"p",
 			null,
@@ -18429,7 +18452,7 @@ exports.Element = Element;
 /* 30 */
 /***/ (function(module, exports) {
 
-module.exports = {"col-right":{"elements":[{"type":"h1","text":"Jimmy Nilsson"},{"type":"text","text":"Software Developer"},{"type":"external","site":"github","URL":"https://github.com/JiiimmyyN","text":"Github","display":"inline"},{"type":"external","site":"linkedin","URL":"https://www.linkedin.com/in/jimmy-nilsson-8a976751/","text":"LinkedIn","display":"inline"},{"type":"external","site":"envelope","URL":"mailto:Jiiiimmmyy@gmail.com","text":"Mail","display":"inline"},{"type":"projects","header":"Proffesional Projects","elements":[{"type":"project","title":"Blast Out","subtitle":"Tarhead Studio","thumbnail":"./assets/blastout.jpg","description":"A PvP Top-Down Arena Brawler where the player battle it out against the enemy using crazy ability combos. The game have an unique ability systems where the player select an ability loadout before each game which makes every match unique.","elements":[{"type":"external","site":"steam","text":" Steam","URL":"http://store.steampowered.com/app/391530/Blast_Out/"},{"type":"external","site":"globe","text":" Website","URL":"http://blastout-game.com"},{"type":"external","site":"youtube","text":" Trailer","URL":"https://www.youtube.com/watch?v=Oqs7DnUVdW0"}]}]}]}}
+module.exports = {"col-right":{"elements":[{"type":"h1","text":"Jimmy Nilsson"},{"type":"text","text":"Software Developer"},{"type":"external-download","site":"file-text","URL":"Jimmy Nilsson Software Developer Resume 2017.pdf","text":"Resume","display":"inline"},{"type":"external","site":"github","URL":"https://github.com/JiiimmyyN","text":"Github","display":"inline"},{"type":"external","site":"linkedin","URL":"https://www.linkedin.com/in/jimmy-nilsson-8a976751/","text":"LinkedIn","display":"inline"},{"type":"external","site":"envelope","URL":"mailto:Jiiiimmmyy@gmail.com","text":"Mail","display":"inline"},{"type":"projects","header":"Proffesional Projects","elements":[{"type":"project","title":"Blast Out","subtitle":"Tarhead Studio","thumbnail":"./assets/blastout.jpg","description":"A PvP Top-Down Arena Brawler where the player battle it out against the enemy using crazy ability combos. The game have an unique ability systems where the player select an ability loadout before each game which makes every match unique.","elements":[{"type":"external","site":"steam","text":" Steam","URL":"http://store.steampowered.com/app/391530/Blast_Out/"},{"type":"external","site":"globe","text":" Website","URL":"http://blastout-game.com"},{"type":"external","site":"youtube","text":" Trailer","URL":"https://www.youtube.com/watch?v=Oqs7DnUVdW0"}]}]}]}}
 
 /***/ }),
 /* 31 */
